@@ -6,7 +6,7 @@ export default component$(() => {
     return (
         <header>
             <div class="header-container">
-                <h1><a href="/">thirdlfさんだよー</a></h1>
+                <h3><a href="/">thirdlfさんだよー</a></h3>
                 <ul>
                     <li><a href="/zenn">Zenn</a></li>
                     <li><a href="/github">Github</a></li>
