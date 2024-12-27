@@ -1,16 +1,19 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./style.css?inline";
+import {LuTerminal} from "@qwikest/icons/lucide";
 
 export default component$(() => {
     useStylesScoped$(styles);
     return (
         <header>
             <div class="header-container">
-                <h3><a href="/">thirdlfさんだよー</a></h3>
-                <ul>
-                    <li><a href="/zenn">Zenn</a></li>
-                    <li><a href="/github">Github</a></li>
-                </ul>
+                <div class="home">
+                    <LuTerminal />
+                    <span class="header-title"><a href="/">~/portfolio</a></span>
+                </div>
+                <span>&nbsp;$ cd</span>
+                <span class="section section-text"><a href="/works">/works</a></span>
+                <span class="section section-text"><a href="/contact">/contact</a></span>
             </div>
         </header>
     )

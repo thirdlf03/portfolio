@@ -3,3 +3,16 @@ body {
     padding: 0;
     background-color: black;
 }
+
+.profile-keyword {
+    color: #63b3ed;
+}
+
+.profile-label {
+    color: #9f7aea;
+    margin-left: 1rem;
+}
+
+.profile-value {
+    color: #f6e05e;
+}

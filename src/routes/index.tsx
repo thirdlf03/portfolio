@@ -1,8 +1,10 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import {component$, useStylesScoped$, useVisibleTask$} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import {LuDatabase, LuCode2, LuCpu, LuTerminalSquare} from "@qwikest/icons/lucide";
 import styles from "./style.css?inline";
+import Typed from 'typed.js';
+import "../global.css?inline"
 
 export const useGithubAPI = routeLoader$(async () => {
     const response = await fetch("https://ungh.cc/users/thirdlf03/repos");
@@ -16,29 +18,34 @@ export const useZennAPI = routeLoader$(async () => {
 
 export const Profile = component$(() => {
     useStylesScoped$(styles);
+
+    // eslint-disable-next-line
+    useVisibleTask$(() => {
+        const options = {
+            strings: [
+                `<span class="profile-keyword">const</span> developer = {<br><span class="profile-label">name:</span> <span class="profile-value">"thirdlf"</span>,<br><span class="profile-label">role:</span> <span class="profile-value">"Student"</span>,<br><span class="profile-label">hobbies:</span> [<span class="profile-value">"Programming", "Game", "Anime"</span>],<br><span class="profile-label">location:</span> <span class="profile-value">"Japan, Fukuoka"</span>,<br><span class="profile-label">language:</span> [<span class="profile-value">"Python"</span>]<br>};`
+            ],
+            typeSpeed: 22,
+            showCursor: true,
+            cursorChar: '|',
+            loop: false,
+        };
+
+        const typed = new Typed('#typed-output', options);
+
+        return () => {
+            typed.destroy();
+        };
+    });
+
     return (
         <div class="profile-container">
             <div class="profile-header">// MAIN PROFILE</div>
             <div class="profile-content">
-                <div>
-                    <span class="profile-keyword">const</span> <span>developer = {`{`}</span>
-                </div>
-                <div class="profile-details">
-                    <span class="profile-label">name:</span> <span class="profile-value">"thirdlf"</span>,
-                    <br/>
-                    <span class="profile-label">role:</span> <span
-                    class="profile-value">"Student"</span>,
-                    <br/>
-                    <span class="profile-label">hobbies:</span> [<span class="profile-value">"Programming", "Game", "Anime"</span>],
-                    <br/>
-                    <span class="profile-label">location:</span> <span class="profile-value">"Japan, Fukuoka"</span>,
-                    <br/>
-                    <span class="profile-label">language:</span> [<span class="profile-value">"Python", "C++"</span>]
-                </div>
-                {`}`};
+                <div id="typed-output"></div>
             </div>
         </div>
-    )
+    );
 })
 
 export const Skill = component$(() => {
@@ -47,7 +54,7 @@ export const Skill = component$(() => {
         <div>
             <div class="section-text">
                 <h1>
-                    My Tech Journey
+                    Basic Skills
                 </h1>
             </div>
             <div class="skill-container">
@@ -96,7 +103,7 @@ export const Zenn = component$(() => {
     return (
         <>
         <h1 class="section-text">Zenn Articles</h1>
-            <div class="container">
+            <div class="container" style={{marginBottom: "2rem"}}>
             {zennArticles.value.articles.map((article: any) => (
                     <div key={article.id} class="container-content">
                         <h1 class="zenn-title"><a href={`https://zenn.dev/${article.path}`} target="_">{article.title}</a></h1>

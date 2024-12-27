@@ -3,20 +3,27 @@ a {
     color: inherit;
 }
 
-ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-li {
-    list-style: none;
-    margin: 0 10px;
-}
-
 header {
     background-color: #1a202c;
+    color: #d1d5db;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    width: 120px;
+}
+
+.section {
+    margin-left: 16px;
+}
+
+.section-text {
     color: #34D399;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .header-container {
@@ -25,3 +32,27 @@ header {
     align-items: center;
 }
 
+.header-title {
+    color: #34D399;
+    font-size: 1rem;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.home {
+    display: flex;
+    margin-left: 10px;
+    height: 16px;
+    align-items: center;
+}
+
+
+@media (min-width: 768px) {
+    .header-container {
+        margin-left: 4rem;
+    }
+
+    .icon-content {
+        margin-left: 1rem;
+    }
+}
