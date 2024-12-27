@@ -19,23 +19,24 @@ export const useZennAPI = routeLoader$(async () => {
 export const Profile = component$(() => {
     useStylesScoped$(styles);
 
+    const options = {
+        strings: [
+            `<span class="profile-keyword">const</span> developer = {<br><span class="profile-label">name:</span> <span class="profile-value">"thirdlf"</span>,<br><span class="profile-label">role:</span> <span class="profile-value">"Student"</span>,<br><span class="profile-label">hobbies:</span> [<span class="profile-value">"Programming", "Game", "Anime"</span>],<br><span class="profile-label">location:</span> <span class="profile-value">"Japan, Fukuoka"</span>,<br><span class="profile-label">language:</span> [<span class="profile-value">"Python"</span>]<br>};`
+        ],
+        typeSpeed: 22,
+        showCursor: true,
+        cursorChar: '|',
+        loop: false,
+    };
     // eslint-disable-next-line
     useVisibleTask$(() => {
-        const options = {
-            strings: [
-                `<span class="profile-keyword">const</span> developer = {<br><span class="profile-label">name:</span> <span class="profile-value">"thirdlf"</span>,<br><span class="profile-label">role:</span> <span class="profile-value">"Student"</span>,<br><span class="profile-label">hobbies:</span> [<span class="profile-value">"Programming", "Game", "Anime"</span>],<br><span class="profile-label">location:</span> <span class="profile-value">"Japan, Fukuoka"</span>,<br><span class="profile-label">language:</span> [<span class="profile-value">"Python"</span>]<br>};`
-            ],
-            typeSpeed: 22,
-            showCursor: true,
-            cursorChar: '|',
-            loop: false,
-        };
-
         const typed = new Typed('#typed-output', options);
 
         return () => {
             typed.destroy();
         };
+    }, {
+        strategy: "intersection-observer",
     });
 
     return (
