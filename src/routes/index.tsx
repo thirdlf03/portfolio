@@ -128,7 +128,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-    title: "thirdlf portfolio",
+    title: "thirdlf03 portfolio",
     meta: [
         {
             name: "description",
