@@ -132,7 +132,11 @@ export const head: DocumentHead = {
     meta: [
         {
             name: "description",
-            content: "ポートフォリオサイトです。",
+            content: "thirdlf03のポートフォリオサイトです。",
+        },
+        {
+            name: "keywords",
+            content: "thirdlf03, thirdlf, portfolio, developer",
         },
     ],
 };
