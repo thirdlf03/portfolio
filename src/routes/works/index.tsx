@@ -12,9 +12,9 @@ export default component$(() => {
             </div>
             <div class="work-container">
                 {[
-                    {title: "ダミー1", describe: "ファースト"},
-                    {title: "ダミー２", describe: "セカンド"},
-                    {title: "ダミー３", describe: "サード"},
+                    {title: "3段クルーン", describe: "https://zawa.thirdlf03.com"},
+                    {title: "QRコード神経衰弱", describe: "https://topaz.dev/projects/a939290be6545eff5895"},
+                    {title: "刹那", describe: "https://topaz.dev/projects/575f49eb3bc26cf370b1"},
                     {title: "ダミー4", describe: "なんか"},
                 ].map((item, index) => (
                     <div key={index} class="work-card">
