@@ -8,13 +8,27 @@ import "../global.css?inline"
 
 export const useGithubAPI = routeLoader$(async () => {
     const response = await fetch("https://ungh.cc/users/thirdlf03/repos");
-    return await response.json();
+    try {
+        if (!response.ok) {
+            throw new Error("Failed to fetch data from GitHub API");
+        }
+        return await response.json();
+    } catch (error) {
+        return { error: "情報の取得に失敗しました"}
+    }
 });
 
 export const useZennAPI = routeLoader$(async () => {
     const response = await fetch("https://zenn.dev/api/articles?username=thirdlf&order=latest");
-    return await response.json();
-})
+    try {
+        if (!response.ok) {
+            throw new Error("Failed to fetch data from Zenn API");
+        }
+        return await response.json();
+    } catch (error) {
+        return { error: "情報の取得に失敗しました"}
+    }
+});
 
 export const Profile = component$(() => {
     useStylesScoped$(styles);
@@ -87,12 +101,16 @@ export const Github = component$(() => {
         <>
             <h1 class="section-text">GitHub Repos</h1>
             <div class="container fade-in">
-                {repos.value.repos.map((repo: any) => (
-                    <div key={repo.name} class="container-content">
-                        <h1 class="github-title"><a href={`https://github.com/${repo.repo}`} target="_">{repo.name}</a></h1>
-                        <p class="github-description">{repo.description}</p>
-                    </div>
-                ))}
+                {repos.value.error ? (
+                    <div class="error-message">{repos.value.error}</div>
+                ) : (
+                    repos.value.repos.map((repo: any) => (
+                        <div key={repo.name} class="container-content">
+                            <h1 class="github-title"><a href={`https://github.com/${repo.repo}`} target="_">{repo.name}</a></h1>
+                            <p class="github-description">{repo.description}</p>
+                        </div>
+                    ))
+                )}
             </div>
         </>
     )
@@ -105,11 +123,15 @@ export const Zenn = component$(() => {
         <>
         <h1 class="section-text">Zenn Articles</h1>
             <div class="container" style={{marginBottom: "2rem"}}>
-            {zennArticles.value.articles.map((article: any) => (
-                    <div key={article.id} class="container-content">
-                        <h1 class="zenn-title"><a href={`https://zenn.dev/${article.path}`} target="_">{article.title}</a></h1>
-                    </div>
-                ))}
+                {zennArticles.value.error ? (
+                    <div class="error-message">{zennArticles.value.error}</div>
+                ) : (
+                    zennArticles.value.articles.map((article: any) => (
+                        <div key={article.id} class="container-content">
+                            <h1 class="zenn-title"><a href={`https://zenn.dev/${article.path}`} target="_">{article.title}</a></h1>
+                        </div>
+                    ))
+                )}
             </div>
         </>
     )
