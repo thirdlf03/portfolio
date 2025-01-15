@@ -21,7 +21,7 @@ export default component$(() => {
                         <div class="work-card-header">
                             <span class="work-title">{item.title}</span>
                         </div>
-                        <div class="work-describe">{item.describe}</div>
+                        <div class="work-describe"><a href={item.describe}>{item.describe}</a></div>
                     </div>
                 ))}
             </div>
