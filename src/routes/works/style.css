@@ -23,7 +23,15 @@
     border-radius: 0.5rem;
     border: 1px solid #4a5568;
     transition: border-color 0.3s ease-in-out;
-    height: 100px;
+    height: 210px;
+}
+
+.work-stack {
+  color: #68d391;
+}
+
+.work-link {
+  color: #88C0D0;
 }
 
 .work-card:hover {
@@ -39,6 +47,8 @@
 
 .work-title {
     color: #68d391;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 @media (min-width: 768px) {
