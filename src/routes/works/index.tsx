@@ -12,6 +12,7 @@ export default component$(() => {
       </div>
       <div class="work-container">
         {[
+          { title: "exit-8", url: "https://topaz.dev/projects/ccc1446d70a00e93ff2d", describe: "この Progate、なんか変...？", techstack: "TypeScript, React, Webcontainers" },
           { title: "緑クイズ~~筋肉を添えて~~", url: "https://topaz.dev/projects/e84022a13ca9e42922cc", describe: "リングコンで回答するクイズ", techstack: "Rust, TypeScript(hono), js" },
           { title: "気合いオセロ", url: "https://topaz.dev/projects/26cc73ac674452fd6250", describe: "オセロAIを気合いで倒す!!", techstack: "Golang (ebitengin), gRPC" },
           { title: "3段クルーン", url: "https://zawa.thirdlf03.com", describe: "例のギャンブルのやつ", techstack: "three.js, cannon-es, js, blender" },
