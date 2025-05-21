@@ -18,7 +18,7 @@ export default component$(() => {
   return (
       <>
         <Header />
-        <main>
+        <main style="padding-bottom: 120px;">
             <Slot />
         </main>
         <Footer />
